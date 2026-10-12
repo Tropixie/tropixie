@@ -27,20 +27,7 @@ export default function Team() {
 
   return (
     <>
-      <section id="team" className="relative py-20 lg:py-28 overflow-hidden text-gray-900 bg-white">
-        {/* Section Background Image */}
-        <div
-          className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-          style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}
-        >
-          <img
-            src="/bg1.jpeg"
-            alt=""
-            className="absolute top-1/2 left-1/2 w-[150vw] h-[150vh] object-cover opacity-10 blur-[2px] saturate-50 transform -translate-x-1/2 -translate-y-1/2 rotate-[7deg]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FCE225]/10 via-yellow-400/5 to-amber-500/10 pointer-events-none mix-blend-multiply"></div>
-        </div>
-
+      <section id="team" className="relative py-20 lg:py-28 overflow-hidden text-gray-900 bg-transparent">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
           {/* SVG Filter for Realistic Brush Stroke Texture */}

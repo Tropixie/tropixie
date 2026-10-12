@@ -47,22 +47,9 @@ export default function About() {
 
   return (
     <>
-      <section id="about" className="relative py-20 lg:py-32 overflow-hidden text-gray-900 bg-white">
-        {/* Section Background Image */}
-        <div
-          className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-          style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}
-        >
-          <img
-            src="/bg1.jpeg"
-            alt=""
-            className="absolute top-1/2 left-1/2 w-[150vw] h-[150vh] object-cover opacity-10 blur-[2px] saturate-50 transform -translate-x-1/2 -translate-y-1/2 rotate-[7deg]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FCE225]/10 via-yellow-400/5 to-amber-500/10 pointer-events-none mix-blend-multiply"></div>
-        </div>
-
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-tropixie-primary/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/3 z-0"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 z-0"></div>
+      <section id="about" className="relative py-20 lg:py-32 overflow-hidden text-gray-900 bg-transparent">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(168,85,247,0.08),transparent_70%)] pointer-events-none -translate-y-1/2 translate-x-1/3 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(147,51,234,0.06),transparent_70%)] pointer-events-none translate-y-1/3 -translate-x-1/3 z-0"></div>
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-stretch gap-16 lg:gap-12">
 

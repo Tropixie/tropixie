@@ -11,7 +11,7 @@ export default function Hero() {
           setYoutubeId(data.hero.youtubeId)
         }
       })
-      .catch(() => {}) // silently use defaults
+      .catch(() => { }) // silently use defaults
   }, [])
 
   return (

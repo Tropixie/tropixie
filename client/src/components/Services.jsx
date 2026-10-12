@@ -30,20 +30,7 @@ export default function Services() {
   const specialService = services[services.length - 1]
 
   return (
-    <section id="services" className="relative py-20 lg:py-32 border-y border-tropixie-border overflow-hidden text-gray-900 bg-gray-50/50">
-      {/* Section Background Image */}
-      <div
-        className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-        style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}
-      >
-        <img
-          src="/bg2.jpeg"
-          alt=""
-          className="absolute top-1/2 left-1/2 w-[150vw] h-[150vh] object-cover opacity-10 blur-[2px] saturate-50 transform -translate-x-1/2 -translate-y-1/2 rotate-[7deg]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FCE225]/10 via-yellow-400/5 to-amber-500/10 pointer-events-none mix-blend-multiply"></div>
-      </div>
-
+    <section id="services" className="relative py-20 lg:py-32 border-y border-tropixie-border/40 overflow-hidden text-gray-900 bg-transparent">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="flex flex-col items-center text-center mb-12 max-w-4xl mx-auto">
@@ -60,7 +47,7 @@ export default function Services() {
         </div>
 
         {/* Smooth Background Highlight for Cards */}
-        <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[80%] bg-tropixie-primary/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[80%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.08),transparent_70%)] rounded-full pointer-events-none z-0"></div>
 
         {/* Grid */}
         <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

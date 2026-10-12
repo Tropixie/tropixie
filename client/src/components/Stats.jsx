@@ -10,11 +10,11 @@ export default function Stats() {
       .then((data) => {
         if (data?.stats?.length > 0) setStats(data.stats)
       })
-      .catch(() => {})
+      .catch(() => { })
   }, [])
 
   return (
-    <section className="relative py-10 lg:py-16 overflow-hidden text-gray-900 bg-gray-50/50">
+    <section className="relative py-10 lg:py-16 overflow-hidden text-gray-900 bg-transparent">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {stats.map((stat, idx) => (
