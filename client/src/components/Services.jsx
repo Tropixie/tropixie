@@ -31,9 +31,9 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-20 lg:py-32 border-y border-tropixie-border/40 overflow-hidden text-gray-900 bg-transparent">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] mx-auto px-6 lg:px-8 xl:px-12">
 
-        <div className="flex flex-col items-center text-center mb-12 max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center mb-12 lg:mb-16 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function Services() {
         <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[80%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.08),transparent_70%)] rounded-full pointer-events-none z-0"></div>
 
         {/* Grid */}
-        <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 xl:gap-10">
           {mainServices.map((service, idx) => (
             <motion.div
               key={idx}
@@ -59,32 +59,32 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
               onClick={() => setSelectedService(service)}
-              className="cursor-pointer group relative bg-gradient-to-br from-white to-tropixie-dark rounded-xl p-4 sm:p-6 border border-tropixie-border shadow-lg hover:border-tropixie-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all duration-300 flex flex-col justify-center items-center"
+              className="cursor-pointer group relative bg-gradient-to-br from-white to-tropixie-dark rounded-xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-10 lg:min-h-[300px] xl:min-h-[340px] border border-tropixie-border shadow-lg hover:border-tropixie-primary hover:shadow-[0_15px_35px_rgba(168,85,247,0.25)] hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 flex flex-col justify-center items-center"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shadow-lg border border-tropixie-primary/20 mb-4 sm:mb-5 group-hover:scale-110 group-hover:border-tropixie-primary transition-all duration-300">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg border border-tropixie-primary/20 mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 group-hover:border-tropixie-primary transition-all duration-300">
                 <img src={service.icon?.url} alt={service.title} className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{service.title}</h3>
+              <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{service.title}</h3>
             </motion.div>
           ))}
         </div>
 
         {/* Special Last Service Centered Card */}
         {specialService && (
-          <div className="flex justify-center mt-4 sm:mt-6">
-            <div className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
+          <div className="flex justify-center mt-4 sm:mt-6 lg:mt-8 xl:mt-10">
+            <div className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.5rem)] xl:w-[calc(25%-1.875rem)]">
               <motion.div
                 onClick={() => setSelectedService(specialService)}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="flex flex-col justify-center items-center cursor-pointer group relative bg-gradient-to-br from-tropixie-dark to-[#ffe4e6] rounded-xl p-4 sm:p-6 border border-purple-500/50 shadow-[0_0_25px_rgba(168,85,247,0.3)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] hover:border-purple-400 transition-all duration-300 h-full block"
+                className="flex flex-col justify-center items-center cursor-pointer group relative bg-gradient-to-br from-tropixie-dark to-[#ffe4e6] rounded-xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-10 lg:min-h-[300px] xl:min-h-[340px] border border-purple-500/50 shadow-[0_0_25px_rgba(168,85,247,0.3)] hover:shadow-[0_20px_45px_rgba(168,85,247,0.5)] hover:border-purple-400 hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 h-full block"
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.5)] border border-purple-400/50 mb-4 sm:mb-5 group-hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-2xl lg:rounded-3xl overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.5)] border border-purple-400/50 mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 transition-all duration-300">
                   <img src={specialService.icon?.url} alt={specialService.title} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{specialService.title}</h3>
+                <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{specialService.title}</h3>
               </motion.div>
             </div>
           </div>

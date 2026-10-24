@@ -80,10 +80,10 @@ function MainSite() {
 
           {/* PC Background */}
           <img
-            src="/pC.png"
+            src="/pc.jpeg"
             alt=""
             decoding="async"
-            className="hidden lg:block w-full h-full object-cover object-top opacity-[0.09]"
+            className="hidden lg:block w-full h-auto object-contain object-top opacity-15"
           />
 
           {/* Soft Ambient Light & Aesthetic Vignette Gradients */}

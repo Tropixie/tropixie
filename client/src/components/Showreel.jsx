@@ -27,10 +27,10 @@ export default function Showreel() {
 
   return (
     <section id="portfolio" className="relative py-20 lg:py-32 overflow-hidden text-gray-900 bg-transparent">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] mx-auto px-6 lg:px-8 xl:px-12">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-12">
+        <div className="flex flex-col items-center text-center mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +44,8 @@ export default function Showreel() {
           </motion.div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid - 1 col on mobile, 2 large cols on PC */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-10 xl:gap-12">
           {projects.map((project, idx) => (
             <motion.div
               key={project._id || idx}
@@ -54,7 +54,7 @@ export default function Showreel() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               onClick={() => setSelectedVideo(project)}
-              className="group cursor-pointer relative rounded-2xl overflow-hidden aspect-video bg-tropixie-dark border border-gray-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-tropixie-primary hover:shadow-[0_15px_40px_rgba(168,85,247,0.3)] transition-all duration-300"
+              className="group cursor-pointer relative rounded-2xl lg:rounded-3xl overflow-hidden aspect-video bg-tropixie-dark border border-gray-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] lg:shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:border-tropixie-primary hover:shadow-[0_25px_65px_rgba(168,85,247,0.35)] hover:-translate-y-1.5 transition-all duration-300"
             >
               {/* Thumbnail Image */}
               <img
@@ -71,10 +71,22 @@ export default function Showreel() {
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-tropixie-primary/80 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:bg-tropixie-primary transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.5)] group-hover:scale-110">
-                  <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                <div className="w-16 h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-tropixie-primary/85 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:bg-tropixie-primary transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.5)] lg:shadow-[0_0_35px_rgba(168,85,247,0.7)] group-hover:scale-110">
+                  <svg className="w-8 h-8 lg:w-11 lg:h-11 xl:w-13 xl:h-13 text-white ml-1 lg:ml-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                 </div>
               </div>
+
+              {/* Subtle title info bar */}
+              {project.title && (
+                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between pointer-events-none">
+                  <h3 className="text-white font-bold font-[var(--font-space)] text-sm sm:text-base lg:text-lg xl:text-xl tracking-tight truncate drop-shadow">
+                    {project.title}
+                  </h3>
+                  <span className="text-[11px] lg:text-xs text-purple-200 font-semibold px-2.5 py-1 bg-white/15 backdrop-blur-md rounded-full ml-3 shrink-0 hidden sm:inline-block">
+                    Watch Video
+                  </span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

@@ -28,7 +28,7 @@ export default function Team() {
   return (
     <>
       <section id="team" className="relative py-20 lg:py-28 overflow-hidden text-gray-900 bg-transparent">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] mx-auto px-6 lg:px-8 xl:px-12">
 
           {/* SVG Filter for Realistic Brush Stroke Texture */}
           <svg className="hidden" aria-hidden="true">
@@ -39,7 +39,7 @@ export default function Team() {
           </svg>
 
           {/* Header */}
-          <div className="flex flex-col items-center text-center mb-12 relative">
+          <div className="flex flex-col items-center text-center mb-12 lg:mb-16 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function Team() {
           </div>
 
           {/* Grid - No Scroll, All Visible */}
-          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-24 pb-8 pt-4">
+          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 lg:gap-x-12 xl:gap-x-16 gap-y-24 lg:gap-y-36 xl:gap-y-40 pb-12 pt-6">
             {team.map((member, idx) => (
               <motion.div
                 key={member._id || idx}
@@ -63,10 +63,10 @@ export default function Team() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.5, type: 'spring', stiffness: 100 }}
                 onClick={() => setSelectedMember(member)}
-                className={`flex flex-col items-center cursor-pointer group ${idx === 2 ? 'w-full sm:w-full' : 'w-[calc(50%-1rem)] sm:w-[calc(50%-1.5rem)]'} ${idx < 3 ? 'md:w-[calc(33.333%-2rem)]' : 'md:w-[calc(25%-2.25rem)]'} relative`}
+                className={`flex flex-col items-center cursor-pointer group ${idx === 2 ? 'w-full sm:w-full' : 'w-[calc(50%-1rem)] sm:w-[calc(50%-1.5rem)]'} ${idx < 3 ? 'md:w-[calc(33.333%-2rem)] lg:w-[calc(33.333%-2.5rem)] xl:w-[calc(33.333%-3rem)]' : 'md:w-[calc(25%-2.25rem)] lg:w-[calc(25%-2.5rem)] xl:w-[calc(25%-3rem)]'} relative`}
               >
                 {/* Profile Image */}
-                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden mb-2 z-10 border-[6px] border-white group-hover:border-[#085da6] transition-colors duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.1)] relative bg-gray-100 flex-shrink-0">
+                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 2xl:w-72 2xl:h-72 rounded-full overflow-hidden mb-2 z-10 border-[6px] lg:border-[8px] xl:border-[10px] border-white group-hover:border-[#085da6] transition-all duration-500 shadow-[0_15px_35px_rgba(0,0,0,0.12)] lg:shadow-[0_20px_45px_rgba(0,0,0,0.18)] relative bg-gray-100 flex-shrink-0 group-hover:scale-105">
                   <img
                     src={member.image?.url}
                     alt={member.name}
@@ -76,26 +76,26 @@ export default function Team() {
                 </div>
 
                 {/* Paint Brush Style Tags */}
-                <div className="relative -mt-6 sm:-mt-8 z-20 flex flex-col items-center">
+                <div className="relative -mt-6 sm:-mt-8 lg:-mt-11 xl:-mt-14 z-20 flex flex-col items-center">
 
                   {/* Name Tag (Blue/Purple Stroke) */}
-                  <div className="relative z-10 px-3 py-1 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/name">
+                  <div className="relative z-10 px-3 py-1 lg:px-6 lg:py-2 xl:px-8 xl:py-2.5 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/name">
                     <div
                       className="absolute inset-0 bg-[#635BFF] transition-colors duration-300 group-hover/name:bg-[#5249ea]"
                       style={{ filter: 'url(#brush-texture)', borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px' }}
                     ></div>
-                    <h4 className="relative z-10 font-bold text-white font-[var(--font-space)] text-sm sm:text-base md:text-lg text-center tracking-wide leading-tight whitespace-nowrap drop-shadow-sm">
+                    <h4 className="relative z-10 font-bold text-white font-[var(--font-space)] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-center tracking-wide leading-tight whitespace-nowrap drop-shadow-sm">
                       {member.name}
                     </h4>
                   </div>
 
                   {/* Role Tag (Magenta/Pink Stroke) */}
-                  <div className="relative -mt-0.5 z-0 px-2.5 py-0.5 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/role">
+                  <div className="relative -mt-0.5 z-0 px-2.5 py-0.5 lg:px-5 lg:py-1.5 xl:px-6 xl:py-2 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/role">
                     <div
                       className="absolute inset-0 bg-[#C83681] transition-colors duration-300 group-hover/role:bg-[#b02b6e]"
                       style={{ filter: 'url(#brush-texture)', borderRadius: '15px 225px 15px 255px/255px 15px 225px 15px' }}
                     ></div>
-                    <p className="relative z-10 text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-widest text-center whitespace-nowrap drop-shadow-sm">
+                    <p className="relative z-10 text-white text-[10px] sm:text-xs md:text-sm lg:text-sm xl:text-base font-black uppercase tracking-widest text-center whitespace-nowrap drop-shadow-sm">
                       {member.role}
                     </p>
                   </div>
