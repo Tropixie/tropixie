@@ -50,7 +50,7 @@ export default function FloatingNav() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-[100px] right-6 z-[100] flex flex-col items-end gap-3"
+          className="hidden md:flex fixed bottom-[100px] right-6 z-[100] flex-col items-end gap-3"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}

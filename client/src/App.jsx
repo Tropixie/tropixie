@@ -67,35 +67,31 @@ function MainSite() {
         />
       </Helmet>
 
-      <div className="relative overflow-x-hidden min-h-screen bg-[#fafafc]">
-        {/* Global Website Background (Mobile & PC) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          {/* Mobile Background */}
-          <img
-            src="/mob.png"
-            alt=""
-            decoding="async"
-            className="block lg:hidden w-full h-full object-cover object-top opacity-[0.08]"
+      <div className="relative overflow-x-hidden min-h-screen bg-gradient-to-b from-[#fdfbf7] via-[#f7f3fb] to-[#f2f6fc] text-slate-800 antialiased selection:bg-orange-500 selection:text-white">
+        {/* Global Website Premium Ambient Gradient Background */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          {/* Rich luminous gradient mesh orbs */}
+          <div className="absolute -top-[10%] -left-[10%] w-[65vw] h-[65vw] max-w-[800px] max-h-[800px] rounded-full bg-gradient-to-br from-orange-400/25 via-amber-300/20 to-transparent blur-[100px]" />
+          <div className="absolute top-[12%] -right-[12%] w-[70vw] h-[70vw] max-w-[850px] max-h-[850px] rounded-full bg-gradient-to-bl from-purple-500/22 via-indigo-400/18 to-transparent blur-[110px]" />
+          <div className="absolute top-[42%] -left-[10%] w-[60vw] h-[60vw] max-w-[750px] max-h-[750px] rounded-full bg-gradient-to-tr from-sky-400/18 via-indigo-300/16 to-transparent blur-[100px]" />
+          <div className="absolute top-[68%] -right-[10%] w-[65vw] h-[65vw] max-w-[800px] max-h-[800px] rounded-full bg-gradient-to-tl from-rose-400/20 via-purple-300/18 to-transparent blur-[110px]" />
+          <div className="absolute -bottom-[10%] left-[20%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full bg-gradient-to-t from-amber-300/20 via-orange-300/15 to-transparent blur-[100px]" />
+
+          {/* Micro-dot grid for depth & studio polish */}
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #1e293b 1px, transparent 0)',
+              backgroundSize: '32px 32px',
+            }}
           />
 
-          {/* PC Background */}
-          <img
-            src="/pc.jpeg"
-            alt=""
-            decoding="async"
-            className="hidden lg:block w-full h-auto object-contain object-top opacity-15"
-          />
-
-          {/* Soft Ambient Light & Aesthetic Vignette Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/20 to-white/60 pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(168,85,247,0.06),transparent_70%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_85%_35%,rgba(245,158,11,0.05),transparent_60%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_15%_65%,rgba(99,102,241,0.06),transparent_70%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_75%_90%,rgba(236,72,153,0.04),transparent_60%)] pointer-events-none" />
+          {/* Soft ambient vignette */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40 pointer-events-none" />
         </div>
 
         <Navbar />
-        <main className="relative z-10 mt-24 lg:mt-20">
+        <main className="relative z-10 mt-16 lg:mt-20">
           <Hero />
           <About />
           <Stats />

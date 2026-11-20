@@ -25,20 +25,91 @@ export default function Services() {
     }
   }, [selectedService])
 
-  // Last service displayed as special centered card (like 3D Printing before)
+  // Split services so the last one (e.g. 3D Printing) sits in its own individual centered row
   const mainServices = services.slice(0, services.length - 1)
-  const specialService = services[services.length - 1]
+  const specialService = services.length > 0 ? services[services.length - 1] : null
+
+  const renderServiceCard = (service, idx, isSpecial = false) => (
+    <motion.div
+      key={service._id || idx}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: idx * 0.04, duration: 0.4 }}
+      onClick={() => setSelectedService(service)}
+      className={`cursor-pointer group relative bg-white/85 backdrop-blur-md rounded-2xl p-4 sm:p-5 border shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(253,140,66,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center h-full ${
+        isSpecial
+          ? 'border-purple-200/80 hover:border-purple-400 bg-gradient-to-br from-white/90 to-purple-50/40'
+          : 'border-white/80 hover:border-orange-300/80'
+      }`}
+    >
+      {/* Subtle top indicator line */}
+      <div
+        className={`absolute top-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent ${
+          isSpecial ? 'via-purple-400/60' : 'via-orange-400/50'
+        } to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+      />
+
+      {/* Icon Container - Perfectly proportioned */}
+      <div
+        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shadow-sm border border-slate-100 mb-3 flex items-center justify-center p-2.5 group-hover:scale-105 group-hover:shadow-md transition-all duration-300 shrink-0 ${
+          isSpecial ? 'bg-gradient-to-br from-purple-100/70 to-pink-100/70' : 'bg-gradient-to-br from-orange-50 to-purple-50'
+        }`}
+      >
+        {service.icon?.url ? (
+          <img src={service.icon.url} alt={service.title} className="w-full h-full object-contain" />
+        ) : (
+          <div
+            className={`w-full h-full rounded-lg flex items-center justify-center font-bold text-base ${
+              isSpecial ? 'bg-purple-100 text-purple-600' : 'bg-orange-100/60 text-orange-600'
+            }`}
+          >
+            {service.title?.charAt(0) || '★'}
+          </div>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3
+        className={`font-bold text-xs sm:text-sm lg:text-base text-slate-800 ${
+          isSpecial ? 'group-hover:text-purple-600' : 'group-hover:text-orange-600'
+        } font-[var(--font-space)] transition-colors leading-snug line-clamp-2`}
+      >
+        {service.title}
+      </h3>
+
+      {/* Short snippet */}
+      {service.shortDesc && (
+        <p className="mt-1.5 text-[11px] sm:text-xs text-slate-500 font-[var(--font-outfit)] line-clamp-2 leading-relaxed">
+          {service.shortDesc}
+        </p>
+      )}
+
+      {/* Hover indicator link */}
+      <div
+        className={`mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold ${
+          isSpecial ? 'text-purple-600' : 'text-orange-500'
+        } opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`}
+      >
+        <span>Details</span>
+        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </motion.div>
+  )
 
   return (
-    <section id="services" className="relative py-20 lg:py-32 border-y border-tropixie-border/40 overflow-hidden text-gray-900 bg-transparent">
-      <div className="relative z-10 max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] mx-auto px-6 lg:px-8 xl:px-12">
-
-        <div className="flex flex-col items-center text-center mb-12 lg:mb-16 max-w-4xl mx-auto">
+    <section id="services" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+      <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-10 lg:mb-14 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative inline-flex items-center justify-center mt-6"
+            className="relative inline-flex items-center justify-center mt-2 sm:mt-4"
           >
             <h2 className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold font-[var(--font-space)] tracking-tight whitespace-nowrap px-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-500 to-indigo-800 animate-text-gradient drop-shadow-xl">
               Our Services
@@ -46,46 +117,16 @@ export default function Services() {
           </motion.div>
         </div>
 
-        {/* Smooth Background Highlight for Cards */}
-        <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[80%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.08),transparent_70%)] rounded-full pointer-events-none z-0"></div>
-
-        {/* Grid */}
-        <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 xl:gap-10">
-          {mainServices.map((service, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05, duration: 0.5 }}
-              onClick={() => setSelectedService(service)}
-              className="cursor-pointer group relative bg-gradient-to-br from-white to-tropixie-dark rounded-xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-10 lg:min-h-[300px] xl:min-h-[340px] border border-tropixie-border shadow-lg hover:border-tropixie-primary hover:shadow-[0_15px_35px_rgba(168,85,247,0.25)] hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 flex flex-col justify-center items-center"
-            >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg border border-tropixie-primary/20 mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 group-hover:border-tropixie-primary transition-all duration-300">
-                <img src={service.icon?.url} alt={service.title} className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{service.title}</h3>
-            </motion.div>
-          ))}
+        {/* Main Services Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+          {mainServices.map((service, idx) => renderServiceCard(service, idx, false))}
         </div>
 
-        {/* Special Last Service Centered Card */}
+        {/* Individual Row in the Middle for the Last Service (3D Printing) */}
         {specialService && (
-          <div className="flex justify-center mt-4 sm:mt-6 lg:mt-8 xl:mt-10">
-            <div className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.5rem)] xl:w-[calc(25%-1.875rem)]">
-              <motion.div
-                onClick={() => setSelectedService(specialService)}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="flex flex-col justify-center items-center cursor-pointer group relative bg-gradient-to-br from-tropixie-dark to-[#ffe4e6] rounded-xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-10 lg:min-h-[300px] xl:min-h-[340px] border border-purple-500/50 shadow-[0_0_25px_rgba(168,85,247,0.3)] hover:shadow-[0_20px_45px_rgba(168,85,247,0.5)] hover:border-purple-400 hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 h-full block"
-              >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-2xl lg:rounded-3xl overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.5)] border border-purple-400/50 mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 transition-all duration-300">
-                  <img src={specialService.icon?.url} alt={specialService.title} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-900 mb-2 font-[var(--font-space)] leading-tight w-full text-center">{specialService.title}</h3>
-              </motion.div>
+          <div className="flex justify-center mt-3 sm:mt-4 lg:mt-5">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-[270px]">
+              {renderServiceCard(specialService, mainServices.length, true)}
             </div>
           </div>
         )}
@@ -100,32 +141,40 @@ export default function Services() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedService(null)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[200]"
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[200]"
             />
             <motion.div
               data-lenis-prevent
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg bg-white rounded-[2rem] z-[201] p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-gray-100 flex flex-col items-center text-center"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg bg-white rounded-3xl z-[201] p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.2)] border border-slate-100 flex flex-col items-center text-center"
             >
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 w-10 h-10 bg-gray-50 hover:bg-tropixie-primary text-gray-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-sm"
+                className="absolute top-4 right-4 w-9 h-9 bg-slate-100 hover:bg-orange-500 text-slate-600 hover:text-white rounded-full flex items-center justify-center transition-all duration-200"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
 
-              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-lg border border-tropixie-primary/20 mb-6">
-                <img src={selectedService.icon?.url} alt={selectedService.title} className="w-full h-full object-cover" />
+              <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shadow-md border border-slate-100 mb-4 bg-gradient-to-br from-orange-50 to-purple-50 p-3">
+                {selectedService.icon?.url ? (
+                  <img src={selectedService.icon.url} alt={selectedService.title} className="w-full h-full object-contain" />
+                ) : (
+                  <div className="w-full h-full rounded-xl bg-orange-100/60 flex items-center justify-center text-orange-600 font-bold text-lg">
+                    {selectedService.title?.charAt(0) || '★'}
+                  </div>
+                )}
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-[var(--font-space)]">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 font-[var(--font-space)]">
                 {selectedService.title}
               </h3>
 
-              <p className="text-gray-600 font-[var(--font-outfit)] text-base leading-relaxed">
-                {selectedService.fullDesc}
+              <p className="text-slate-600 font-[var(--font-outfit)] text-xs sm:text-sm leading-relaxed">
+                {selectedService.fullDesc || selectedService.shortDesc}
               </p>
 
               {selectedService.externalLink && (
@@ -133,9 +182,9 @@ export default function Services() {
                   href={selectedService.externalLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 px-8 py-3 bg-gradient-to-r from-tropixie-primary to-purple-600 rounded-full text-white font-bold text-sm shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(168,85,247,0.8)] transition-all duration-300"
+                  className="mt-5 px-6 py-2 btn-gradient text-xs font-bold uppercase tracking-wider"
                 >
-                  Explore
+                  Explore Work
                 </a>
               )}
             </motion.div>
