@@ -26,11 +26,11 @@ export default function Showreel() {
   }, [selectedVideo])
 
   return (
-    <section id="portfolio" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+    <section id="portfolio" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-10 lg:mb-14">
+        <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

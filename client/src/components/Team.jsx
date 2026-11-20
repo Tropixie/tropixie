@@ -43,7 +43,7 @@ export default function Team() {
     >
       <div className="flex flex-col items-center">
         {/* Profile Image */}
-        <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mb-2 z-10 border-[3px] sm:border-4 border-white group-hover:border-[#635BFF] transition-all duration-300 shadow-md group-hover:shadow-lg relative bg-slate-100 flex-shrink-0 group-hover:scale-105">
+        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full overflow-hidden mb-2 z-10 border-4 sm:border-[5px] border-white group-hover:border-[#635BFF] transition-all duration-300 shadow-md group-hover:shadow-lg relative bg-slate-100 flex-shrink-0 group-hover:scale-105">
           {member.image?.url ? (
             <img
               src={member.image.url}
@@ -51,17 +51,17 @@ export default function Team() {
               className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500 ease-out"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center font-bold text-slate-400 bg-slate-100 text-xl sm:text-2xl">
+            <div className="w-full h-full flex items-center justify-center font-bold text-slate-400 bg-slate-100 text-2xl sm:text-3xl">
               {member.name?.charAt(0) || '👤'}
             </div>
           )}
-          <div className="absolute inset-0 rounded-full shadow-[inset_0_0_10px_rgba(0,0,0,0.08)] pointer-events-none transition-all duration-300"></div>
+          <div className="absolute inset-0 rounded-full shadow-[inset_0_0_12px_rgba(0,0,0,0.1)] pointer-events-none transition-all duration-300"></div>
         </div>
 
         {/* Paint Brush Style Tags */}
-        <div className="relative -mt-4 sm:-mt-5 z-20 flex flex-col items-center">
+        <div className="relative -mt-5 sm:-mt-6 md:-mt-7 z-20 flex flex-col items-center">
           {/* Name Tag (Blue/Purple Brush Stroke) */}
-          <div className="relative z-10 px-3 py-1 sm:px-4 sm:py-1.5 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/name">
+          <div className="relative z-10 px-3.5 py-1 sm:px-4 sm:py-1.5 md:px-5 md:py-2 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/name">
             <div
               className="absolute inset-0 bg-[#635BFF] transition-colors duration-300 group-hover/name:bg-[#5249ea] shadow-sm"
               style={{
@@ -69,13 +69,13 @@ export default function Team() {
                 borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
               }}
             ></div>
-            <h4 className="relative z-10 font-bold text-white font-[var(--font-space)] text-[11px] sm:text-xs md:text-sm text-center tracking-wide leading-tight whitespace-nowrap drop-shadow-sm px-1.5">
+            <h4 className="relative z-10 font-bold text-white font-[var(--font-space)] text-xs sm:text-sm md:text-base text-center tracking-wide leading-tight whitespace-nowrap drop-shadow-sm px-1.5">
               {member.name}
             </h4>
           </div>
 
           {/* Role Tag (Magenta/Pink Brush Stroke) */}
-          <div className="relative -mt-0.5 z-0 px-2.5 py-0.5 sm:px-3 sm:py-1 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/role">
+          <div className="relative -mt-0.5 z-0 px-3 py-0.5 sm:px-3.5 sm:py-1 md:px-4 md:py-1 transform hover:-translate-y-0.5 transition-transform duration-300 flex items-center justify-center group/role">
             <div
               className="absolute inset-0 bg-[#C83681] transition-colors duration-300 group-hover/role:bg-[#b02b6e] shadow-sm"
               style={{
@@ -83,7 +83,7 @@ export default function Team() {
                 borderRadius: '15px 225px 15px 255px/255px 15px 225px 15px',
               }}
             ></div>
-            <p className="relative z-10 text-white text-[9px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-wider text-center whitespace-nowrap drop-shadow-sm px-1.5">
+            <p className="relative z-10 text-white text-[10px] sm:text-[11px] md:text-xs font-black uppercase tracking-wider text-center whitespace-nowrap drop-shadow-sm px-1.5">
               {member.role}
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function Team() {
 
   return (
     <>
-      <section id="team" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+      <section id="team" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
         {/* SVG Filter with Fine Distortion Scale for Clean Paint Brush Texture */}
         <svg className="hidden" aria-hidden="true">
           <filter id="team-brush-texture" x="-10%" y="-10%" width="120%" height="120%">
@@ -106,7 +106,7 @@ export default function Team() {
         <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <div className="flex flex-col items-center text-center mb-8 lg:mb-12 relative">
+          <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8 relative">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function Team() {
           {/* Row 1: First 3 Team Members (Co-Founders) */}
           {/* On Mobile: 2 columns with the 3rd centered; On Desktop: 3 columns in 1 row */}
           {firstRow.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-3 max-w-2xl md:max-w-3xl mx-auto gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-6 sm:gap-y-8 md:gap-y-10 mb-6 sm:mb-8 md:mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto gap-x-5 sm:gap-x-7 md:gap-x-9 gap-y-7 sm:gap-y-9 md:gap-y-11 mb-7 sm:mb-9 md:mb-11">
               {firstRow.map((member, idx) => renderMemberCard(member, idx, idx === 2))}
             </div>
           )}
@@ -131,7 +131,7 @@ export default function Team() {
           {/* Row 2: Next 4 Team Members */}
           {/* On Mobile: 2 columns; On Desktop: 4 columns in 1 row */}
           {secondRow.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-6 sm:gap-y-8 md:gap-y-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto gap-x-5 sm:gap-x-7 md:gap-x-9 gap-y-7 sm:gap-y-9 md:gap-y-11">
               {secondRow.map((member, idx) => renderMemberCard(member, idx + 3, false))}
             </div>
           )}

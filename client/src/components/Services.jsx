@@ -100,18 +100,18 @@ export default function Services() {
   )
 
   return (
-    <section id="services" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+    <section id="services" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
       <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-10 lg:mb-14 max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="relative inline-flex items-center justify-center mt-2 sm:mt-4"
           >
-            <h2 className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold font-[var(--font-space)] tracking-tight whitespace-nowrap px-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-500 to-indigo-800 animate-text-gradient drop-shadow-xl">
+            <h2 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[var(--font-space)] tracking-tight text-center px-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-500 to-indigo-800 animate-text-gradient drop-shadow-xl">
               Our Services
             </h2>
           </motion.div>

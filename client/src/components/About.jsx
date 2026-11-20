@@ -45,7 +45,7 @@ export default function About() {
 
   return (
     <>
-      <section id="about" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+      <section id="about" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
 

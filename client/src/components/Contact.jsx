@@ -35,7 +35,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-12 lg:py-20 overflow-hidden text-slate-800 bg-transparent">
+    <section id="contact" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Unified Premium Contact Card */}

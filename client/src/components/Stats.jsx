@@ -16,7 +16,7 @@ export default function Stats() {
   if (!stats || stats.length === 0) return null
 
   return (
-    <section className="relative py-8 lg:py-12 overflow-hidden text-slate-800 bg-transparent">
+    <section className="relative py-3 sm:py-4 lg:py-5 overflow-hidden text-slate-800 bg-transparent">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {stats.map((stat, idx) => (
