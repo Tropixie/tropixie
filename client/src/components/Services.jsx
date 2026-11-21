@@ -50,9 +50,9 @@ export default function Services() {
         } to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
       />
 
-      {/* Icon Container - Perfectly proportioned */}
+      {/* Icon / Image Container - Significantly increased prominent size */}
       <div
-        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shadow-sm border border-slate-100 mb-3 flex items-center justify-center p-2.5 group-hover:scale-105 group-hover:shadow-md transition-all duration-300 shrink-0 ${
+        className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden shadow-sm border border-slate-100 mb-3.5 sm:mb-4 flex items-center justify-center p-3 sm:p-3.5 group-hover:scale-105 group-hover:shadow-md transition-all duration-300 shrink-0 ${
           isSpecial ? 'bg-gradient-to-br from-purple-100/70 to-pink-100/70' : 'bg-gradient-to-br from-orange-50 to-purple-50'
         }`}
       >
@@ -60,7 +60,7 @@ export default function Services() {
           <img src={service.icon.url} alt={service.title} className="w-full h-full object-contain" />
         ) : (
           <div
-            className={`w-full h-full rounded-lg flex items-center justify-center font-bold text-base ${
+            className={`w-full h-full rounded-xl flex items-center justify-center font-bold text-2xl sm:text-3xl ${
               isSpecial ? 'bg-purple-100 text-purple-600' : 'bg-orange-100/60 text-orange-600'
             }`}
           >
@@ -94,7 +94,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
-      <div className="relative z-10 max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-[96%] xl:w-[94%] 2xl:w-[92%] max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8 max-w-4xl mx-auto">
@@ -118,7 +118,7 @@ export default function Services() {
         {/* Individual Row in the Middle for the Last Service (3D Printing) */}
         {specialService && (
           <div className="flex justify-center mt-3 sm:mt-4 lg:mt-5">
-            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-[320px]">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-[360px]">
               {renderServiceCard(specialService, mainServices.length, true)}
             </div>
           </div>

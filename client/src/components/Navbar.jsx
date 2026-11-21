@@ -62,25 +62,25 @@ export default function Navbar() {
           className="absolute inset-0 bg-white/75 backdrop-blur-sm pointer-events-none"
         ></div>
 
-        <div className="relative z-10 max-w-7xl xl:max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+        <div className="relative z-10 w-[96%] xl:w-[94%] 2xl:w-[92%] max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 flex items-center justify-between h-full">
           {/* Logo / Studio Name */}
           <div
             className="flex items-center gap-2 cursor-pointer select-none"
             onClick={() => scrollTo('#hero')}
           >
-            {/* Mobile View: Clean Proportional Logo */}
+            {/* Desktop / PC View: Logo */}
             <img 
               src="/logo.png" 
-              alt="Tropixie Logo" 
-              className="h-9 sm:h-10 w-auto object-contain lg:hidden" 
+              alt="Tropixie Animation Studio Logo" 
+              className="hidden lg:block h-11 lg:h-12 xl:h-14 w-auto object-contain" 
             />
 
-            {/* Desktop View: Studio Wordmark */}
-            <span className="hidden lg:flex items-start text-2xl lg:text-3xl font-bold font-[var(--font-space)]">
+            {/* Mobile View: Studio Wordmark */}
+            <span className="flex lg:hidden items-start text-sm sm:text-base md:text-lg font-bold font-[var(--font-space)] tracking-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-500 to-indigo-800 animate-text-gradient drop-shadow-sm">
                 Tropixie Animation Studio
               </span>
-              <span className="ml-1.5 -mt-0.5 flex items-center justify-center w-4 h-4 border-[1.5px] border-indigo-800 rounded-full text-[7px] font-bold tracking-tighter text-indigo-800">
+              <span className="ml-1 -mt-0.5 flex items-center justify-center w-3.5 h-3.5 border-[1.2px] border-indigo-800 rounded-full text-[6px] font-bold tracking-tighter text-indigo-800">
                 TM
               </span>
             </span>

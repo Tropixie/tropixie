@@ -27,7 +27,7 @@ export default function Showreel() {
 
   return (
     <section id="portfolio" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
-      <div className="relative z-10 max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-[96%] xl:w-[94%] 2xl:w-[92%] max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6">
 
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8">

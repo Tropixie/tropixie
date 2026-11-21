@@ -46,7 +46,7 @@ export default function About() {
   return (
     <>
       <section id="about" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
-        <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-[96%] xl:w-[94%] 2xl:w-[92%] max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
 
             {/* Left Side: About & Why Choose Us Text */}
