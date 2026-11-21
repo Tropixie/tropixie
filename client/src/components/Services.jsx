@@ -94,7 +94,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-5 sm:py-6 lg:py-8 overflow-hidden text-slate-800 bg-transparent">
-      <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8 max-w-4xl mx-auto">
@@ -118,7 +118,7 @@ export default function Services() {
         {/* Individual Row in the Middle for the Last Service (3D Printing) */}
         {specialService && (
           <div className="flex justify-center mt-3 sm:mt-4 lg:mt-5">
-            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-[270px]">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-[320px]">
               {renderServiceCard(specialService, mainServices.length, true)}
             </div>
           </div>

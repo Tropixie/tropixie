@@ -62,7 +62,7 @@ export default function Navbar() {
           className="absolute inset-0 bg-white/75 backdrop-blur-sm pointer-events-none"
         ></div>
 
-        <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-full">
+        <div className="relative z-10 max-w-7xl xl:max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
           {/* Logo / Studio Name */}
           <div
             className="flex items-center gap-2 cursor-pointer select-none"

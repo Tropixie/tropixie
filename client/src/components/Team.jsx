@@ -103,7 +103,7 @@ export default function Team() {
           </filter>
         </svg>
 
-        <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-5 sm:mb-6 lg:mb-8 relative">
@@ -123,7 +123,7 @@ export default function Team() {
           {/* Row 1: First 3 Team Members (Co-Founders) */}
           {/* On Mobile: 2 columns with the 3rd centered; On Desktop: 3 columns in 1 row */}
           {firstRow.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-3 max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto gap-x-5 sm:gap-x-7 md:gap-x-9 gap-y-7 sm:gap-y-9 md:gap-y-11 mb-7 sm:mb-9 md:mb-11">
+            <div className="grid grid-cols-2 md:grid-cols-3 max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-5xl mx-auto gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-7 sm:gap-y-9 md:gap-y-11 mb-7 sm:mb-9 md:mb-11">
               {firstRow.map((member, idx) => renderMemberCard(member, idx, idx === 2))}
             </div>
           )}
@@ -131,7 +131,7 @@ export default function Team() {
           {/* Row 2: Next 4 Team Members */}
           {/* On Mobile: 2 columns; On Desktop: 4 columns in 1 row */}
           {secondRow.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto gap-x-5 sm:gap-x-7 md:gap-x-9 gap-y-7 sm:gap-y-9 md:gap-y-11">
+            <div className="grid grid-cols-2 md:grid-cols-4 max-w-3xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-7 sm:gap-y-9 md:gap-y-11">
               {secondRow.map((member, idx) => renderMemberCard(member, idx + 3, false))}
             </div>
           )}
