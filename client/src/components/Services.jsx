@@ -78,21 +78,14 @@ export default function Services() {
         {service.title}
       </h3>
 
-      {/* Short snippet */}
-      {service.shortDesc && (
-        <p className="mt-1.5 text-[11px] sm:text-xs text-slate-500 font-[var(--font-outfit)] line-clamp-2 leading-relaxed">
-          {service.shortDesc}
-        </p>
-      )}
-
-      {/* Hover indicator link */}
+      {/* Detail button */}
       <div
-        className={`mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold ${
+        className={`mt-auto pt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold ${
           isSpecial ? 'text-purple-600' : 'text-orange-500'
-        } opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`}
+        } opacity-85 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`}
       >
-        <span>Details</span>
-        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span>Detail</span>
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
         </svg>
       </div>
